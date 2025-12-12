@@ -32,6 +32,14 @@ export default function Navbar() {
         >
           Open Dispatch
         </button>
+
+        <button
+          onClick={() => navigate("/supervisor")}
+          className="px-4 py-2 rounded-lg bg-amber-500 hover:bg-amber-400 transition-all text-black font-medium text-xs shadow-[0_0_10px_rgba(255,193,7,0.4)]"
+        >
+          Supervisor
+        </button>
+
         <button
           onClick={logout}
           className="px-3 py-2 rounded-lg bg-red-600/80 hover:bg-red-500 text-white text-xs"
