@@ -17,7 +17,7 @@ export default function Supervisor() {
   useEffect(() => {
     async function fetchAgency() {
       try {
-        const me = await api.get("/users/me");
+        const me = await api.get("/auth/me");
         if (!me.data.user) return;
         const agencyId = me.data.user.agencyId;
         const agencyRes = await api.get(`/agency/${agencyId}`);
