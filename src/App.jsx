@@ -3,6 +3,7 @@ import Login from "./pages/Login.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import Dispatch from "./pages/Dispatch.jsx";
 import IncidentView from "./pages/IncidentView.jsx";
+import Supervisor from "./pages/Supervisor.jsx"; // ✅ import
 
 function ProtectedRoute({ children }) {
   const token = localStorage.getItem("token");
@@ -16,6 +17,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/dashboard" replace />} />
         <Route path="/login" element={<Login />} />
+
         <Route
           path="/dashboard"
           element={
@@ -24,6 +26,7 @@ export default function App() {
             </ProtectedRoute>
           }
         />
+
         <Route
           path="/dispatch"
           element={
@@ -32,6 +35,7 @@ export default function App() {
             </ProtectedRoute>
           }
         />
+
         <Route
           path="/incident/:id"
           element={
@@ -40,6 +44,18 @@ export default function App() {
             </ProtectedRoute>
           }
         />
+
+        {/* ✅ NEW: Supervisor Route */}
+        <Route
+          path="/supervisor"
+          element={
+            <ProtectedRoute>
+              <Supervisor />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Catch-all */}
         <Route path="*" element={<Navigate to="/dashboard" replace />} />
       </Routes>
     </BrowserRouter>
